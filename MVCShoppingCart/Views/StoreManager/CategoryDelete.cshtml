@@ -1,0 +1,22 @@
+﻿@model MVCShoppingCart.Models.Category
+@{
+    ViewBag.Title = "Delete Category";
+    Layout = "~/Views/Shared/_StoreManagerLayout.cshtml";
+}
+
+<h3>Are you sure you want to delete category: <em class="text-primary">@Html.DisplayTextFor(c => c.Title)</em> ?</h3>
+
+<p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(c => c.CategoryId)
+ 
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" name="CategoryDelete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Categories")
+    </div>
+}
+</p>
+
+

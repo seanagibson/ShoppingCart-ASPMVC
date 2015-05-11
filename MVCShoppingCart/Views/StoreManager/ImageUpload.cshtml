@@ -1,0 +1,28 @@
+﻿@model MVCShoppingCart.Models.Product
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_StoreManagerLayout.cshtml";
+}
+
+<h2>@Model.Name Images</h2>
+
+<p></p>
+
+@using (Html.BeginForm("ImageUpload", "StoreManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ProductId)
+    <fieldset>
+        <legend>Upload Image</legend>
+        <div class="editor-field">
+            <input type="file" id="file" name="Image" value="" />
+        </div>
+        <div class="checkbox">
+            @Html.CheckBox("ImageThumbnail", false)
+        </div>
+        <div class="editor-field">
+            <input type="submit" name="ImageUpload" value="Upload" />
+        </div>
+    </fieldset>
+}
+

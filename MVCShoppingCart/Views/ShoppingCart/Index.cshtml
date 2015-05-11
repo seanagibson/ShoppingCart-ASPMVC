@@ -1,0 +1,76 @@
+﻿@model MVCShoppingCart.ViewModel.ShoppingCartVM 
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+<h2>Shopping Cart</h2>
+
+<div id="update-message"></div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr id="row-@item.CartItemId">
+                <td>
+                    @Html.ActionLink(item.Product.Name, "Details", "Products", new { id = item.ProductId }, null)
+                </td>
+                <td>
+                    @item.Product.Price
+                </td>
+                <td id="item-count-@item.CartItemId">
+                    @item.Count
+                </td>
+                <td>
+                    <a href="#" class="RemoveLink" data-id="@item.CartItemId" data-url='@Url.Content("~/ShoppingCart/RemoveFromCart")'><span class="glyphicon glyphicon-remove-sign">Remove from cart</span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tr>
+        <td>
+            Subtotal
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td id="cart-subtotal">
+            @Model.CartSubTotal
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sales Tax
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td id="cart-salestax">
+            @Model.CartSalesTax
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Total
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td id="cart-total">
+            @Model.CartTotal
+        </td>
+    </tr>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/shoppingCart")
+}
+

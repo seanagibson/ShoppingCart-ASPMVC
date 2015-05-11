@@ -1,0 +1,44 @@
+﻿@model MVCShoppingCart.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<hr />
+
+<div class="container">
+    <img alt="@Model.Name" src="@Model.ThumbnailImagePath" />
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-default" href="@Url.Action("AddToCart", "ShoppingCart", new { id = Model.ProductId })">Add to Cart</a>
+    <a class="btn btn-primary" href="@Url.Action("Index","Products")">Back to List</a>
+</p>

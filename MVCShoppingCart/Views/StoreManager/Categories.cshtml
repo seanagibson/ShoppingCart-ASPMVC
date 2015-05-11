@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVCShoppingCart.Models.Category>
+@{
+    ViewBag.Title = "Product Categories";
+    Layout = "~/Views/Shared/_StoreManagerLayout.cshtml";
+}
+
+<h2>Product Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CategoryCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+    </tr>
+
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => category.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => category.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "CategoryDelete", new { id = category.CategoryId })
+            </td>
+        </tr>
+    }
+
+</table>
+

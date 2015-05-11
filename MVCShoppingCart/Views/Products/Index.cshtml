@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MVCShoppingCart.ViewModel.ProductListVM>
+
+@{
+    ViewBag.Title = "Browse Products";
+}
+
+<h2>Products</h2>
+<hr/>
+
+<ul class="list-unstyled">
+    @foreach (var item in Model)
+    {
+        <li class="col-lg-3 col-md-3 col-sm-2 col-xs-1 container">
+            <a href="@Url.Action("Details", new {id = item.ProductId })">
+                <img src="@Url.Content(item.ThumbnailImagePath)" /> 
+                <h4 class="control-label">@item.Name</h4>
+                <h5>@item.Price</h5>
+                <p>
+                    <a class="btn btn-default btn-sm" href="@Url.Action("AddToCart", "ShoppingCart", new {id = item.ProductId })">Add to Cart</a>
+                </p>
+            </a>
+        </li>
+    }
+</ul>
