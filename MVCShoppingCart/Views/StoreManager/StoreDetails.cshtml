@@ -1,0 +1,46 @@
+﻿@model MVCShoppingCart.Models.StoreManager
+@{
+    ViewBag.Title = "StoreDetails";
+    Layout = "~/Views/Shared/_StoreManagerLayout.cshtml";
+}
+
+<h2>Store Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StoreAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StoreCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StoreState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreZipCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StoreZipCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleTaxRate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleTaxRate)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "StoreEdit", "StoreManager")
+</p>

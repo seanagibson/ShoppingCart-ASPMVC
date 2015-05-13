@@ -130,7 +130,7 @@ namespace MVCShoppingCart.Logic
 
         public decimal GetSalesTax()
         {
-            double? salesTaxRate = 0.10;//db.StoreManagers.First().SaleTaxRate;
+            double? salesTaxRate = db.StoreManagers.First().SaleTaxRate;
 
             decimal? salesTaxTotal = GetSubtotal() * (decimal)salesTaxRate;
             return salesTaxTotal ?? decimal.Zero;

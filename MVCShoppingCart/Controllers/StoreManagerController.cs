@@ -212,5 +212,30 @@ namespace MVCShoppingCart.Controllers
             var customers = new CustomerLogic();
             return View(customers.ToList());
         }
+
+        public ActionResult StoreDetails()
+        {
+            var storeDetails = new StoreManagerLogic();
+            return View(storeDetails.getStoreDetails());
+        }
+
+        public ActionResult StoreEdit()
+        {
+            var storeDetails = new StoreManagerLogic();
+            return View(storeDetails.getStoreDetails());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StoreEdit([Bind(Include = "StoreAddress,StoreCity,StoreState,StoreZipCode,SalesTaxRate")] StoreManager storeManager)
+        {
+            if (ModelState.IsValid)
+            {
+                var storeManagerLogic = new StoreManagerLogic();
+                storeManagerLogic.updateStoreManager(storeManager);
+                RedirectToAction("StoreDetails");
+            }
+            return View("StoreEdit");
+        }
     }
 }
