@@ -213,29 +213,53 @@ namespace MVCShoppingCart.Controllers
             return View(customers.ToList());
         }
 
-        public ActionResult StoreDetails()
+        public ActionResult StoreIndex()
         {
-            var storeDetails = new StoreManagerLogic();
-            return View(storeDetails.getStoreDetails());
+            var store = new StoreManagerLogic();
+            return View(store.toList());
         }
 
-        public ActionResult StoreEdit()
+        public ActionResult StoreDetails(int id)
         {
             var storeDetails = new StoreManagerLogic();
-            return View(storeDetails.getStoreDetails());
+            return View(storeDetails.getStoreDetails(id));
+        }
+
+        public ActionResult StoreEdit(int id)
+        {
+            var storeDetails = new StoreManagerLogic();
+            return View(storeDetails.getStoreDetails(id));
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult StoreEdit([Bind(Include = "StoreAddress,StoreCity,StoreState,StoreZipCode,SalesTaxRate")] StoreManager storeManager)
+        public ActionResult StoreEdit([Bind(Include = "StoreManagerID,StoreAddress,StoreCity,StoreState,StoreZipCode,SalesTaxRate")] StoreManager storeManager)
         {
             if (ModelState.IsValid)
             {
                 var storeManagerLogic = new StoreManagerLogic();
-                storeManagerLogic.updateStoreManager(storeManager);
-                RedirectToAction("StoreDetails");
+                storeManagerLogic.editStoreManagerDBRecord(storeManager);
+                RedirectToAction("StoreIndex");
             }
             return View("StoreEdit");
+        }
+
+        public ActionResult StoreCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StoreCreate([Bind(Include = "StoreAddress,StoreCity,StoreState,StoreZipCode,SalesTaxRate")]StoreManager storeManager)
+        {
+            if (ModelState.IsValid)
+            {
+                var store = new StoreManagerLogic();
+                store.createStoreManagerDBRecord(storeManager);
+                RedirectToAction("StoreIndex");
+            }
+            return View("StoreCreate");
         }
     }
 }

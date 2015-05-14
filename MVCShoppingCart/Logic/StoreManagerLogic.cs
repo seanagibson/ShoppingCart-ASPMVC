@@ -13,37 +13,37 @@ namespace MVCShoppingCart.Logic
     {
         ShoppingCartContext db = new ShoppingCartContext();
 
-        public StoreManager getStoreDetails()
+        public StoreManager getStoreDetails(int id)
         {
-            int id = 1; //There should only be one store manager record in db
             var storeDetails = db.StoreManagers.Find(id);
 
             return storeDetails;
         }
 
-        public void updateStoreManager(StoreManager storeManager)
+        public void editStoreManagerDBRecord(StoreManager storeManager)
         {
-            var storeDBRecord = db.StoreManagers.Find(1);
+            db.Entry(storeManager).State = EntityState.Modified;
+            db.SaveChanges();
+        }
 
-            if(storeDBRecord == null) //create a new db record
+        public void createStoreManagerDBRecord(StoreManager storeManager)
+        {
+            var newStoreManager = new StoreManager
             {
-                var newStoreManager = new StoreManager
-                {
-                    StoreManagerId = 1,
-                    StoreAddress = storeManager.StoreAddress,
-                    StoreCity = storeManager.StoreCity,
-                    StoreState = storeManager.StoreState,
-                    StoreZipCode = storeManager.StoreZipCode,
-                    SaleTaxRate = storeManager.SaleTaxRate,
-                };
-                db.StoreManagers.Add(newStoreManager);
-                db.SaveChanges();
-            }
-            else //update the db record
-            {
-                db.Entry(storeManager).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+                StoreManagerId = db.StoreManagers.Count() + 1,
+                StoreAddress = storeManager.StoreAddress,
+                StoreCity = storeManager.StoreCity,
+                StoreState = storeManager.StoreState,
+                StoreZipCode = storeManager.StoreZipCode,
+                SalesTaxRate = storeManager.SalesTaxRate,
+            };
+            db.StoreManagers.Add(newStoreManager);
+            db.SaveChanges();
+        }
+
+        public List<StoreManager> toList()
+        {
+            return db.StoreManagers.ToList();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model MVCShoppingCart.Models.StoreManager
 
 @{
-    ViewBag.Title = "StoreEdit";
+    ViewBag.Title = "Edit Store Details";
     Layout = "~/Views/Shared/_StoreManagerLayout.cshtml";
 }
 
@@ -49,10 +49,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SaleTaxRate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SalesTaxRate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SaleTaxRate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SaleTaxRate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.SalesTaxRate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SalesTaxRate, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -65,5 +65,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "StoreIndex")
 </div>

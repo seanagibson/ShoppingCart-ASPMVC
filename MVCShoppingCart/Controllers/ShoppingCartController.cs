@@ -37,13 +37,16 @@ namespace MVCShoppingCart.Controllers
             return RedirectToAction("Index");
         }
 
+        //AJAX post
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
             var cart = ShoppingCartLogic.GetCart(this.HttpContext);
 
+            var shoppingCart = new ShoppingCartLogic();
+            int productId = shoppingCart.GetCartItemProductId(id);
             var productService = new ProductLogic();
-            var productToRemove = productService.FindProduct(id);
+            Product productToRemove = productService.FindProduct(productId);
 
             int itemCount = cart.RemoveFromCart(id);
 
@@ -58,7 +61,32 @@ namespace MVCShoppingCart.Controllers
                 ItemCount = itemCount,
                 DeleteId = id,
             };
+
             return Json(removeViewModel);
+        }
+
+        public ActionResult CustomerInfo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CustomerInfo([Bind(Include = "FirstName,LastName,StreetAddress1,StreetAddress2,City,State,PostalCode,Country,Email,Phone")] Customer customer)
+        {
+            var customerLogic = new CustomerLogic();
+            customerLogic.CreateNewCustomer(customer);
+            return RedirectToAction("Payment");
+        }
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
+        public ActionResult Checkout()
+        {
+            return View();
         }
     }
 }

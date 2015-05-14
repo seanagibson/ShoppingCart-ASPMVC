@@ -29,7 +29,7 @@ namespace MVCShoppingCart.Models
         [StringLength(160)]
         public string StreetAddress1 { get; set; }
 
-        [Required]
+       
         [StringLength(75)]
         public string StreetAddress2 { get; set; }
 

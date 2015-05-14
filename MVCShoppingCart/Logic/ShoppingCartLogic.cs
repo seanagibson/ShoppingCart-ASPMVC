@@ -88,10 +88,9 @@ namespace MVCShoppingCart.Logic
                     cartItem.Count--;
                     itemCount = cartItem.Count;
                 }
-                else
-                {
-                    db.CartItems.Remove(cartItem);
-                }
+                                
+                db.CartItems.Remove(cartItem);
+                db.SaveChanges();
             }
             return itemCount;
         }
@@ -108,6 +107,13 @@ namespace MVCShoppingCart.Logic
         public List<CartItem> GetCartItems()
         {
             return db.CartItems.Where(cart => cart.CartId == ShoppingCartId).ToList();
+        }
+
+        public int GetCartItemProductId(int id)
+        {
+            var cartItem = db.CartItems.Find(id);
+
+            return cartItem.ProductId;
         }
 
         public int GetCount()
@@ -130,7 +136,7 @@ namespace MVCShoppingCart.Logic
 
         public decimal GetSalesTax()
         {
-            double? salesTaxRate = db.StoreManagers.First().SaleTaxRate;
+            double? salesTaxRate = db.StoreManagers.First().SalesTaxRate;
 
             decimal? salesTaxTotal = GetSubtotal() * (decimal)salesTaxRate;
             return salesTaxTotal ?? decimal.Zero;

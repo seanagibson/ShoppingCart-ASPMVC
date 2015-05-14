@@ -191,6 +191,14 @@
     <Compile Include="Migrations\201505072306061_UpdateStoreManagerModel.Designer.cs">
       <DependentUpon>201505072306061_UpdateStoreManagerModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505141735109_UpdateStoreManagerModel1.cs" />
+    <Compile Include="Migrations\201505141735109_UpdateStoreManagerModel1.Designer.cs">
+      <DependentUpon>201505141735109_UpdateStoreManagerModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505142322194_UpdateCustomerModel.cs" />
+    <Compile Include="Migrations\201505142322194_UpdateCustomerModel.Designer.cs">
+      <DependentUpon>201505142322194_UpdateCustomerModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -343,6 +351,11 @@
     <Content Include="Views\StoreManager\Customers.cshtml" />
     <Content Include="Views\StoreManager\StoreDetails.cshtml" />
     <Content Include="Views\StoreManager\StoreEdit.cshtml" />
+    <Content Include="Views\StoreManager\StoreCreate.cshtml" />
+    <Content Include="Views\StoreManager\StoreIndex.cshtml" />
+    <Content Include="Views\ShoppingCart\Checkout.cshtml" />
+    <Content Include="Views\ShoppingCart\CustomerInfo.cshtml" />
+    <Content Include="Views\ShoppingCart\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505072101116_InitialCreate.resx">
@@ -357,13 +370,18 @@
     <EmbeddedResource Include="Migrations\201505072306061_UpdateStoreManagerModel.resx">
       <DependentUpon>201505072306061_UpdateStoreManagerModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505141735109_UpdateStoreManagerModel1.resx">
+      <DependentUpon>201505141735109_UpdateStoreManagerModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505142322194_UpdateCustomerModel.resx">
+      <DependentUpon>201505142322194_UpdateCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

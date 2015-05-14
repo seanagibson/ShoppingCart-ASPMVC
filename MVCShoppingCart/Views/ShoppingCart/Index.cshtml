@@ -4,15 +4,19 @@
 }
 
 <h2>Shopping Cart</h2>
+<div class="continueShoppingBtn">
+    <p><a href="@Url.Action("Index","Products")" class="btn btn-default">Continue Shopping</a></p>
+</div>
 
 <div id="update-message"></div>
 
-<table class="table table-striped">
+<table class="table table-bordered">
     <thead>
         <tr>
-            <th></th>
+            <th>Product</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Total</th>
             <th></th>
         </tr>
     </thead>
@@ -29,48 +33,43 @@
                 <td id="item-count-@item.CartItemId">
                     @item.Count
                 </td>
+                <td></td>
                 <td>
-                    <a href="#" class="RemoveLink" data-id="@item.CartItemId" data-url='@Url.Content("~/ShoppingCart/RemoveFromCart")'><span class="glyphicon glyphicon-remove-sign">Remove from cart</span></a>
+                    <a href="#" class="btn btn-primary btn-xs btn-block RemoveLink" data-id="@item.CartItemId" data-url='@Url.Content("~/ShoppingCart/RemoveFromCart")'>Remove</a>
                 </td>
             </tr>
         }
     </tbody>
     <tr>
-        <td>
-            Subtotal
-        </td>
         <td></td>
         <td></td>
-        <td></td>
-        <td id="cart-subtotal">
+        <td>Subtotal:</td>
+        <td colspan="2" id="cart-subtotal">
             @Model.CartSubTotal
         </td>
     </tr>
     <tr>
-        <td>
-            Sales Tax
-        </td>
         <td></td>
         <td></td>
-        <td></td>
-        <td id="cart-salestax">
+        <td>Sales Tax:</td>
+        <td colspan="2" id="cart-salestax">
             @Model.CartSalesTax
         </td>
     </tr>
     <tr>
-        <td>
-            Total
-        </td>
         <td></td>
         <td></td>
-        <td></td>
-        <td id="cart-total">
+        <td>Total:</td>
+        <td colspan="2" id="cart-total">
             @Model.CartTotal
         </td>
     </tr>
 </table>
+<div>
+    <p><a class="btn btn-default pull-right" href="@Url.Action("CustomerInfo", "ShoppingCart")">Proceed to Checkout &raquo;</a></p>
+</div>
 
 @section Scripts {
-    @Scripts.Render("~/shoppingCart")
+    @Scripts.Render("~/bundles/jquerycart")
 }
 

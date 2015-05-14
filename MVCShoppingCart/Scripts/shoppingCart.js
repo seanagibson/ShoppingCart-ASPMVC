@@ -14,6 +14,7 @@
                     $('#cart-salestax').text(data.CartSalesTax);
                     $('#cart-total').text(data.CartTotal);
                     $('#update-message').text(data.Message);
+                    $('#update-message').fadeOut('slow');
                 });
         }
     });

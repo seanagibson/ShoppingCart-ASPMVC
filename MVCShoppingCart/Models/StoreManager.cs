@@ -24,7 +24,7 @@ namespace MVCShoppingCart.Models
         public int StoreZipCode { get; set; }
 
         [Display(Name="Sales Tax Rate")]
-        public double SaleTaxRate { get; set; }
+        public double SalesTaxRate { get; set; }
 
         public List<Product> Products { get; set; }
     }
