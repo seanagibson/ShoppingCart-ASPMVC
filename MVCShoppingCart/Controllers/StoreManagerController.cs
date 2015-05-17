@@ -239,9 +239,9 @@ namespace MVCShoppingCart.Controllers
             {
                 var storeManagerLogic = new StoreManagerLogic();
                 storeManagerLogic.editStoreManagerDBRecord(storeManager);
-                RedirectToAction("StoreIndex");
+                RedirectToAction("StoreIndex", "StoreManager");
             }
-            return View("StoreEdit");
+            return View();
         }
 
         public ActionResult StoreCreate()

@@ -175,29 +175,9 @@
     <Compile Include="Logic\ProductLogic.cs" />
     <Compile Include="Logic\ShoppingCartLogic.cs" />
     <Compile Include="Logic\StoreManagerLogic.cs" />
-    <Compile Include="Migrations\201505072101116_InitialCreate.cs" />
-    <Compile Include="Migrations\201505072101116_InitialCreate.Designer.cs">
-      <DependentUpon>201505072101116_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505072142022_InitialMigration.cs" />
-    <Compile Include="Migrations\201505072142022_InitialMigration.Designer.cs">
-      <DependentUpon>201505072142022_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505072232227_UpdateProductModel.cs" />
-    <Compile Include="Migrations\201505072232227_UpdateProductModel.Designer.cs">
-      <DependentUpon>201505072232227_UpdateProductModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505072306061_UpdateStoreManagerModel.cs" />
-    <Compile Include="Migrations\201505072306061_UpdateStoreManagerModel.Designer.cs">
-      <DependentUpon>201505072306061_UpdateStoreManagerModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505141735109_UpdateStoreManagerModel1.cs" />
-    <Compile Include="Migrations\201505141735109_UpdateStoreManagerModel1.Designer.cs">
-      <DependentUpon>201505141735109_UpdateStoreManagerModel1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505142322194_UpdateCustomerModel.cs" />
-    <Compile Include="Migrations\201505142322194_UpdateCustomerModel.Designer.cs">
-      <DependentUpon>201505142322194_UpdateCustomerModel.cs</DependentUpon>
+    <Compile Include="Migrations\201505162235349_init.cs" />
+    <Compile Include="Migrations\201505162235349_init.Designer.cs">
+      <DependentUpon>201505162235349_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -222,10 +202,6 @@
     <Compile Include="ViewModel\ShoppingCartVM.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ShoppingCart.mdf" />
-    <Content Include="App_Data\ShoppingCart_log.ldf">
-      <DependentUpon>ShoppingCart.mdf</DependentUpon>
-    </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -358,30 +334,18 @@
     <Content Include="Views\ShoppingCart\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505072101116_InitialCreate.resx">
-      <DependentUpon>201505072101116_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505072142022_InitialMigration.resx">
-      <DependentUpon>201505072142022_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505072232227_UpdateProductModel.resx">
-      <DependentUpon>201505072232227_UpdateProductModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505072306061_UpdateStoreManagerModel.resx">
-      <DependentUpon>201505072306061_UpdateStoreManagerModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505141735109_UpdateStoreManagerModel1.resx">
-      <DependentUpon>201505141735109_UpdateStoreManagerModel1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505142322194_UpdateCustomerModel.resx">
-      <DependentUpon>201505142322194_UpdateCustomerModel.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505162235349_init.resx">
+      <DependentUpon>201505162235349_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

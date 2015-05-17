@@ -20,10 +20,11 @@ namespace MVCShoppingCart.Logic
             if (image != null && image.ContentLength > 0)
             {
                 var imageName = Path.GetFileName(image.FileName);
-                var imagePath = Path.Combine(HttpContext.Current.Server.MapPath("~/Images/"), imageName);
-                image.SaveAs(imagePath);
+                var imageLocation = Path.Combine(HttpContext.Current.Server.MapPath("~/Images/") + imageName);
+                image.SaveAs(imageLocation);
 
                 var imageUploadService = new ImageUploadLogic();
+                var imagePath = "~/Images/" + imageName; //relative path for src
                 imageUploadService.addImageDBRecord(imagePath, imageName, imageThumbnail, productId);
                 
                 return true;

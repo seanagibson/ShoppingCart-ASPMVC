@@ -18,6 +18,13 @@
                 });
         }
     });
+    //Disable Checkout btn if cart is empty
+    function (){
+        var cartTotal = $('#cart-total').val;
+        if(cartTotal <= '0'){
+            $('#CheckoutButton').prop('disabled', true);
+        }
+    }
 };
 
 $(document).ready(main);
