@@ -3,7 +3,7 @@ namespace MVCShoppingCart.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -33,7 +33,7 @@ namespace MVCShoppingCart.Migrations
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Cost = c.Decimal(nullable: false, precision: 18, scale: 2),
                         PurchaseDate = c.DateTime(nullable: false),
-                        SoldDate = c.DateTime(nullable: false),
+                        SoldDate = c.DateTime(),
                         CategoryId = c.Int(),
                         StoreManagerId = c.Int(),
                     })
@@ -71,7 +71,11 @@ namespace MVCShoppingCart.Migrations
                 c => new
                     {
                         StoreManagerId = c.Int(nullable: false, identity: true),
-                        SaleTaxRate = c.Double(nullable: false),
+                        StoreAddress = c.String(),
+                        StoreCity = c.String(),
+                        StoreState = c.String(),
+                        StoreZipCode = c.Int(nullable: false),
+                        SalesTaxRate = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.StoreManagerId);
             
@@ -84,7 +88,7 @@ namespace MVCShoppingCart.Migrations
                         FirstName = c.String(nullable: false, maxLength: 50),
                         LastName = c.String(nullable: false, maxLength: 50),
                         StreetAddress1 = c.String(nullable: false, maxLength: 160),
-                        StreetAddress2 = c.String(nullable: false, maxLength: 75),
+                        StreetAddress2 = c.String(maxLength: 75),
                         City = c.String(nullable: false, maxLength: 50),
                         State = c.String(nullable: false, maxLength: 50),
                         PostalCode = c.String(nullable: false, maxLength: 10),

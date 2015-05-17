@@ -10,7 +10,6 @@ namespace MVCShoppingCart.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "MVCShoppingCart.DAL.ShoppingCartContext";
         }
 
         protected override void Seed(MVCShoppingCart.DAL.ShoppingCartContext context)
@@ -27,7 +26,6 @@ namespace MVCShoppingCart.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
         }
     }
 }

@@ -7,13 +7,13 @@ namespace MVCShoppingCart.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class UpdateProductModel : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateProductModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505072232227_UpdateProductModel"; }
+            get { return "201505162235349_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCShoppingCart.Models.StoreManager>
+
+@{
+    ViewBag.Title = "Store Information";
+    Layout = "~/Views/Shared/_StoreManagerLayout.cshtml";
+}
+
+<h2>Store Information</h2>
+
+<p>
+    @Html.ActionLink("Create New", "StoreCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesTaxRate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTaxRate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "StoreEdit", new { id=item.StoreManagerId }) |
+            @Html.ActionLink("Details", "StoreDetails", new { id=item.StoreManagerId })
+        </td>
+    </tr>
+}
+
+</table>
